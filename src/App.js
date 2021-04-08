@@ -1,9 +1,18 @@
 // Import modules
 import React from "react";
+import Header from './components/Header';
+import Wrapper from "./components/Wrapper";
 
 // App component function
 function App() {
-  return <h1>Employee Directory</h1>;
+  return (
+    <div>
+      <Header />
+      <Wrapper>
+
+      </Wrapper>
+    </div>
+  );
 }
 
 // Export modules

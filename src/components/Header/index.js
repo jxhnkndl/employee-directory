@@ -4,8 +4,10 @@ import React from 'react';
 // Header component function
 function Header() {
   return (
-    <header>
-      <h1>Employee Directory</h1>
+    <header className="bg-primary p-5">
+      <h1 className="display-3 text-center text-light">
+        Employee Directory
+      </h1>
     </header>
   );
 }
