@@ -1,16 +1,14 @@
 // Import modules
 import React from "react";
 import Header from './components/Header';
-import Wrapper from "./components/Wrapper";
+import Search from "./pages/Search/"
 
 // App component function
 function App() {
   return (
     <div>
       <Header />
-      <Wrapper>
-
-      </Wrapper>
+      <Search />
     </div>
   );
 }
