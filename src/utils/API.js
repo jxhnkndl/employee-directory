@@ -2,9 +2,12 @@
 // Import modules
 import axios from 'axios';
 
+// Endpoint
+const endpoint = `https://randomuser.me/api/?seed=bootcamp&results=50`;
+
 // Export API request methods
 export default {
   getEmployees: function() {
-    return axios.get('https://randomuser.me/api/?seed=foobar&results=50');
+    return axios.get(endpoint);
   }
 }

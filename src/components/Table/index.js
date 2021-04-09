@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Table component function
-function Table() {
+function Table(props) {
   return (
     <table className="table table-hover table-striped p-0">
       <thead>
@@ -15,46 +15,7 @@ function Table() {
         </tr>
       </thead>
       <tbody>
-
-        <tr>
-          <th scope="row" className="align-middle">
-            <img 
-              src="https://randomuser.me/api/portraits/thumb/men/86.jpg"
-              alt="Company headshot"
-            />
-          </th>
-          <td className="align-middle">Clinton Adams</td>
-          <td className="align-middle">(095) 414-2335</td>
-          <td className="align-middle">clinton.adams@example.com</td>
-          <td className="align-middle">10-05-1975</td>
-        </tr>
-
-        <tr>
-          <th scope="row" className="align-middle">
-            <img 
-              src="https://randomuser.me/api/portraits/thumb/men/86.jpg"
-              alt="Company headshot"
-            />
-          </th>
-          <td className="align-middle">Clinton Adams</td>
-          <td className="align-middle">(095) 414-2335</td>
-          <td className="align-middle">clinton.adams@example.com</td>
-          <td className="align-middle">10-05-1975</td>
-        </tr>
-
-        <tr>
-          <th scope="row" className="align-middle">
-            <img 
-              src="https://randomuser.me/api/portraits/thumb/men/86.jpg"
-              alt="Company headshot"
-            />
-          </th>
-          <td className="align-middle">Clinton Adams</td>
-          <td className="align-middle">(095) 414-2335</td>
-          <td className="align-middle">clinton.adams@example.com</td>
-          <td className="align-middle">10-05-1975</td>
-        </tr>
-        
+        {props.children}
       </tbody>
     </table>
   );
