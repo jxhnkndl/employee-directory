@@ -1,7 +1,7 @@
 // Import modules
 import React from "react";
 import Header from './components/Header';
-import Search from "./pages/Search/"
+import Search from "./pages/Search";
 
 // App component function
 function App() {
