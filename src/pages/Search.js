@@ -35,12 +35,25 @@ class Search extends Component {
     return dayjs(dob).format('MM/DD/YYYY');
   }
 
+  // Handle search input change
+  handleInputChange = (event) => {
+    const { value } = event.target;
+    console.log(value);
+
+    this.setState({
+      search: value
+    });
+  }
+
   // Render output
   render() {
     return (
       <main>
         <Container>
-          <SearchInput />
+          <SearchInput 
+            value={this.state.search}
+            handleInputChange={this.handleInputChange}
+          />
           <Table>
             {/* Map over results array and create new row for each result */}
             {this.state.results.map((employee, index) => {

@@ -2,11 +2,22 @@
 import React from 'react';
 
 // Search input component function
-function SearchInput() {
+function SearchInput(props) {
+  console.log(props);
   return (
     <div className="form-group py-4">
-      <label htmlFor="search-input">Filter employees by name or phone number:</label>
-      <input type="text" className="form-control" id="search-input" />
+      <label htmlFor="search">
+        Filter employees by name or phone number:
+      </label>
+      <input 
+        className="form-control" 
+        id="search" 
+        type="text" 
+        name="search"
+        placeholder="Search by name or phone number"
+        value={props.value}
+        onChange={props.handleInputChange}
+      />
     </div>
   );
 }
