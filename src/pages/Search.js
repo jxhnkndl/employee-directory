@@ -46,7 +46,8 @@ class Search extends Component {
             {this.state.results.map((employee, index) => {
               return (
                 <ResultRow 
-                  id={employee.index}
+                  key={index}
+                  id={index}
                   image={employee.picture.thumbnail}
                   name={`${employee.name.first} ${employee.name.last}`}
                   phone={employee.cell}

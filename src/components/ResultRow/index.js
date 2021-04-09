@@ -3,7 +3,7 @@ import React from 'react';
 
 function ResultRow(props) {
   return (
-    <tr key="props.id">
+    <tr key={props.id} data-id={props.id}>
       <th scope="row" className="align-middle">
         <img 
           src={props.image}
