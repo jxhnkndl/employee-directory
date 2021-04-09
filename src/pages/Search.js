@@ -1,5 +1,8 @@
 // Import modules
 import React, { Component } from 'react';
+import Container from '../components/Container';
+import SearchInput from '../components/SearchInput';
+import Table from '../components/Table';
 
 // Create search results container
 class Search extends Component {
@@ -7,7 +10,12 @@ class Search extends Component {
 
   render() {
     return (
-      <p>Temp</p>
+      <main>
+        <Container>
+          <SearchInput />
+          <Table />
+        </Container>
+      </main>
     );
   }
 }
