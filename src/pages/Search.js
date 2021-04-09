@@ -5,6 +5,7 @@ import SearchInput from '../components/SearchInput';
 import Table from '../components/Table';
 import ResultRow from '../components/ResultRow';
 import API from '../utils/API';
+import dayjs from 'dayjs';
 
 // Create search results container
 class Search extends Component {
@@ -29,6 +30,11 @@ class Search extends Component {
       .catch((err) => console.log(err));
   };
 
+  // Format DOB utility method
+  formatDate = (dob) => {
+    return dayjs(dob).format('MM/DD/YYYY');
+  }
+
   // Render output
   render() {
     return (
@@ -36,15 +42,16 @@ class Search extends Component {
         <Container>
           <SearchInput />
           <Table>
+            {/* Map over results array and create new row for each result */}
             {this.state.results.map((employee, index) => {
               return (
                 <ResultRow 
                   id={employee.index}
                   image={employee.picture.thumbnail}
                   name={`${employee.name.first} ${employee.name.last}`}
-                  phone={'804-888-8080'}
+                  phone={employee.cell}
                   email={employee.email}
-                  dob={'05/19/1983'}
+                  dob={this.formatDate(employee.dob.date)}
                 />
               );
             })}
