@@ -24,6 +24,12 @@ class Search extends Component {
   getEmployees = () => {
     API.getEmployees()
       .then((res) => {
+        // Create fullName property for each employee
+        res.data.results.forEach((employee) => {
+          employee.fullName = `${employee.name.first} ${employee.name.last}`;
+        })
+
+        // Assign mutated response array to results
         this.setState({ results: res.data.results });
         console.log(this.state);
       })
@@ -54,27 +60,21 @@ class Search extends Component {
           />
           <Table>
             {this.state.results
-              // First, filter out any results that don't include the search string
+              // Filter out any results that don't include the search string
               .filter((employee) => {
-                // Capture regex patterns for only letters and only numbers
-                let letters = /^[a-zA-Z]+$/;
-                let numbers = /^[0-9]+$/;
-
-                // Capture comparison fields
+                // Capture filter field values
                 let name = employee.name.first.toLowerCase();
                 let phone = employee.cell;
 
-                // Capture the current state of the search string
+                // Capture the current search string
                 let search = this.state.search;
 
                 // Determine whether user is searching by name, phone number, or neither
-                if (letters.test(search)) {
+                if (search.match(/^[a-zA-Z]+$/)) {
                   return name.includes(search.toLowerCase());
-
-                } else if (numbers.test(search)) {
+                } else if (search.match(/^[0-9]+$/)) {
                   return phone.includes(search);
-
-                } else {  
+                } else {
                   return employee;
                 }
               })
@@ -85,13 +85,13 @@ class Search extends Component {
                     key={index}
                     id={index}
                     image={employee.picture.thumbnail}
-                    name={`${employee.name.first} ${employee.name.last}`}
+                    name={employee.fullName}
                     phone={employee.cell}
                     email={employee.email}
                     dob={this.formatDate(employee.dob.date)}
                   />
                 );
-            })}
+              })}
           </Table>
         </Container>
       </main>
