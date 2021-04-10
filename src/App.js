@@ -6,8 +6,16 @@ import Footer from './components/Footer';
 
 // App component function
 function App() {
+  const styles = {
+    div: {
+      minHeight: '100vh',
+      paddingBottom: '75px',
+      position: 'relative'
+    }
+  }
+  
   return (
-    <div>
+    <div style={styles.div}>
       <Header />
       <Search />
       <Footer />
