@@ -27,7 +27,7 @@ function Table(props) {
       <thead>
         <tr>
           <th style={columns.image} scope="col">Image</th>
-          <th style={columns.name} scope="col">Name</th>
+          <th style={columns.name} onClick={props.handleNameSort} scope="col">Name</th>
           <th style={columns.phone} scope="col">Phone</th>
           <th style={columns.email} scope="col">Email</th>
           <th style={columns.dob} scope="col">DOB</th>
