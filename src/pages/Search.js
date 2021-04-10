@@ -13,7 +13,7 @@ class Search extends Component {
   state = {
     search: '',
     results: [],
-    sorted: false
+    sorted: false,
   };
 
   // Load employees when search components mounts
@@ -28,11 +28,10 @@ class Search extends Component {
         // Create fullName property for each employee
         res.data.results.forEach((employee) => {
           employee.fullName = `${employee.name.first} ${employee.name.last}`;
-        })
+        });
 
         // Assign mutated response array to results
         this.setState({ results: res.data.results });
-        console.log(this.state);
       })
       .catch((err) => console.log(err));
   };
@@ -45,14 +44,12 @@ class Search extends Component {
   // Handle search input change
   handleInputChange = (event) => {
     const { value } = event.target;
-    console.log(value);
 
     this.setState({ search: value });
   };
 
   // Sort alphabetically by name
   handleNameSort = (event) => {
-
     // Set sorted state to true
     // Note this should stay true for every event after the first instance
     this.setState({ sorted: true });
@@ -71,7 +68,7 @@ class Search extends Component {
 
       // Update the state of the results with the sorted array
       this.setState({ results: sortedArray });
-    } 
+    }
     // If results have already been sorted once
     else {
       // Reverse the sorted array
@@ -80,7 +77,7 @@ class Search extends Component {
       // Update the state of the results with the flipped array
       this.setState({ results: reverseArray });
     }
-  }
+  };
 
   // Render output
   render() {
