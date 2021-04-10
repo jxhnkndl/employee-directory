@@ -56,10 +56,27 @@ class Search extends Component {
             {this.state.results
               // First, filter out any results that don't include the search string
               .filter((employee) => {
-                const search = this.state.search.toLowerCase();
-                const name = employee.name.first.toLowerCase();
-          
-                return name.includes(search);
+                // Capture regex patterns for only letters and only numbers
+                let letters = /^[a-zA-Z]+$/;
+                let numbers = /^[0-9]+$/;
+
+                // Capture comparison fields
+                let name = employee.name.first.toLowerCase();
+                let phone = employee.cell;
+
+                // Capture the current state of the search string
+                let search = this.state.search;
+
+                // Determine whether user is searching by name, phone number, or neither
+                if (letters.test(search)) {
+                  return name.includes(search.toLowerCase());
+
+                } else if (numbers.test(search)) {
+                  return phone.includes(search);
+
+                } else {  
+                  return employee;
+                }
               })
               // Then map the remaining results and create table rows for each
               .map((employee, index) => {
