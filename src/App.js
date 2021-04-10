@@ -1,7 +1,8 @@
 // Import modules
-import React from "react";
+import React from 'react';
 import Header from './components/Header';
-import Search from "./pages/Search";
+import Search from './pages/Search';
+import Footer from './components/Footer';
 
 // App component function
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <div>
       <Header />
       <Search />
+      <Footer />
     </div>
   );
 }
