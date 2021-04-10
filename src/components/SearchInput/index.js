@@ -6,9 +6,6 @@ function SearchInput(props) {
   console.log(props);
   return (
     <div className="form-group py-4">
-      <label htmlFor="search">
-        Filter employees by name or phone number:
-      </label>
       <input 
         className="form-control" 
         id="search" 
