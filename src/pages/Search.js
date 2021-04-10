@@ -13,6 +13,7 @@ class Search extends Component {
   state = {
     search: '',
     results: [],
+    sorted: false
   };
 
   // Load employees when search components mounts
@@ -49,6 +50,38 @@ class Search extends Component {
     this.setState({ search: value });
   };
 
+  // Sort alphabetically by name
+  handleNameSort = (event) => {
+
+    // Set sorted state to true
+    // Note this should stay true for every event after the first instance
+    this.setState({ sorted: true });
+
+    // If the results haven't yet been sorted
+    if (!this.state.sorted) {
+      // Take the results array and sort by name alphabetically
+      const sortedArray = this.state.results.sort((a, b) => {
+        if (a.fullName < b.fullName) {
+          return -1;
+        } else if (a.fullName > b.fullName) {
+          return 1;
+        }
+        return 0;
+      });
+
+      // Update the state of the results with the sorted array
+      this.setState({ results: sortedArray });
+    } 
+    // If results have already been sorted once
+    else {
+      // Reverse the sorted array
+      const reverseArray = this.state.results.reverse();
+
+      // Update the state of the results with the flipped array
+      this.setState({ results: reverseArray });
+    }
+  }
+
   // Render output
   render() {
     return (
@@ -58,7 +91,7 @@ class Search extends Component {
             value={this.state.search}
             handleInputChange={this.handleInputChange}
           />
-          <Table>
+          <Table handleNameSort={this.handleNameSort}>
             {this.state.results
               // Filter out any results that don't include the search string
               .filter((employee) => {
