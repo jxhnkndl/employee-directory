@@ -23,6 +23,7 @@ const columns = {
 // Table component function
 function Table(props) {
   const [isVisible, setIsVisible] = useState(false);
+  const [isAscending, setIsAscending] = useState(false);
 
   return (
     <table className="table table-hover table-striped p-0">
@@ -31,12 +32,19 @@ function Table(props) {
           <th style={columns.image} scope="col">Image</th>
           <th 
             style={columns.name} 
-            onClick={props.handleNameSort} 
+            // Sort the rows by name and toggle the order state
+            onClick={() => {
+              props.handleNameSort();
+              setIsAscending(!isAscending);
+            }} 
+            // Only show the icons when the field is hovered over
             onMouseEnter={() => setIsVisible(true)}
             onMouseLeave={() => setIsVisible(false)}
             scope="col">
             Name
-            {isVisible && <i className="fas fa-sort-alpha-down ml-2"></i>}
+            {/* Determine which icon to show based on how rows are currently sorted/ordered */}
+            {(isVisible && isAscending) && <i className="fas fa-sort-alpha-up ml-2"></i>}
+            {(isVisible && !isAscending) && <i className="fas fa-sort-alpha-down ml-2"></i>}
           </th>
           <th style={columns.phone} scope="col">Phone</th>
           <th style={columns.email} scope="col">Email</th>
