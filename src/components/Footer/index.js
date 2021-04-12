@@ -1,21 +1,13 @@
 // Import modules
 import React from 'react';
+import './style.css';
 
 // Functional component declaration
 function Footer() {
-
-  const styles = {
-    footer: {
-      position: 'absolute',
-      left: 0,
-      bottom: 0,
-      right: 0
-    }
-  }
-
   return (
-    <footer style={styles.footer} className="bg-primary p-1">
+    <footer className="p-3">
       <p className="mb-0 text-center text-light">
+        <i id="icon-footer" class="fas fa-exclamation-circle mr-2"></i>
         For Interal Use Only
       </p>
     </footer>

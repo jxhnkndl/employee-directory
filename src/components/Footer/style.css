@@ -1,0 +1,11 @@
+footer {
+  background-color: #1A2238;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#icon-footer {
+  color: #F4DB7D;
+}
