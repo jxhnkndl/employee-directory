@@ -1,24 +1,8 @@
 // Import modules
 import React, { useState } from 'react';
 
-// Table column widths
-const columns = {
-  image: {
-    width: '10%'
-  },
-  name: {
-    width: '30%'
-  },
-  phone: {
-    width: '20%'
-  },
-  email: {
-    width: '30%'
-  },
-  dob: {
-    width: '10%'
-  }
-}
+// Import styles
+import './style.css';
 
 // Table component function
 function Table(props) {
@@ -26,34 +10,46 @@ function Table(props) {
   const [isAscending, setIsAscending] = useState(false);
 
   return (
-    <table className="table table-hover table-striped p-0">
+    <table className="table table-hover table-striped table-responsive-md p-0">
       <thead>
         <tr>
-          <th style={columns.image} scope="col">Image</th>
-          <th 
-            style={columns.name} 
+          <th id="col-image" scope="col">
+            Image
+          </th>
+          <th
+            id="col-name"
             // Sort the rows by name and toggle the order state
             onClick={() => {
               props.handleNameSort();
               setIsAscending(!isAscending);
-            }} 
+            }}
             // Only show the icons when the field is hovered over
             onMouseEnter={() => setIsVisible(true)}
             onMouseLeave={() => setIsVisible(false)}
-            scope="col">
+            scope="col"
+          >
+            <i class="fas fa-sort mr-2"></i>
             Name
             {/* Determine which icon to show based on how rows are currently sorted/ordered */}
-            {(isVisible && isAscending) && <i className="fas fa-sort-alpha-up ml-2"></i>}
-            {(isVisible && !isAscending) && <i className="fas fa-sort-alpha-down ml-2"></i>}
+            {isVisible && isAscending && (
+              <i className="fas fa-sort-alpha-up ml-2"></i>
+            )}
+            {isVisible && !isAscending && (
+              <i className="fas fa-sort-alpha-down ml-2"></i>
+            )}
           </th>
-          <th style={columns.phone} scope="col">Phone</th>
-          <th style={columns.email} scope="col">Email</th>
-          <th style={columns.dob} scope="col">DOB</th>
+          <th id="col-phone" scope="col">
+            Phone
+          </th>
+          <th id="col-email" scope="col">
+            Email
+          </th>
+          <th id="col-dob" scope="col">
+            DOB
+          </th>
         </tr>
       </thead>
-      <tbody>
-        {props.children}
-      </tbody>
+      <tbody>{props.children}</tbody>
     </table>
   );
 }
