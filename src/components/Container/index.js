@@ -1,10 +1,10 @@
 // Import modules
 import React from 'react';
 
-// Wrapper component constructor
+// Functional container component
 function Container(props) {
   return <div className="container">{props.children}</div>;
 }
 
-// Export Wrapper component
+// Export component
 export default Container;

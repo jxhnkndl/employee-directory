@@ -7,7 +7,7 @@ import ResultRow from '../components/ResultRow';
 import API from '../utils/API';
 import dayjs from 'dayjs';
 
-// Create search results container
+// Classical search results container component
 class Search extends Component {
   // Component state
   state = {
@@ -120,5 +120,5 @@ class Search extends Component {
   }
 }
 
-// Export Search class
+// Export component
 export default Search;

@@ -1,10 +1,8 @@
 // Import modules
 import React, { useState } from 'react';
-
-// Import styles
 import './style.css';
 
-// Table component function
+// Functional table component
 function Table(props) {
   const [isVisible, setIsVisible] = useState(false);
   const [isAscending, setIsAscending] = useState(false);
@@ -54,5 +52,5 @@ function Table(props) {
   );
 }
 
-// Export Table
+// Export component
 export default Table;

@@ -1,6 +1,7 @@
 // Import modules
 import React from 'react';
 
+// Functional result row component
 function ResultRow(props) {
   return (
     <tr key={props.id} data-id={props.id}>

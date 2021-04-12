@@ -1,7 +1,7 @@
 // Import modules
 import React from 'react';
 
-// Search input component function
+// Functional search input component
 function SearchInput(props) {
   return (
     <div className="form-group py-4">
@@ -18,5 +18,5 @@ function SearchInput(props) {
   );
 }
 
-// Export search input component
+// Export component
 export default SearchInput;

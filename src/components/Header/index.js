@@ -2,7 +2,7 @@
 import React from 'react';
 import './style.css';
 
-// Header component function
+// Functional header component
 function Header() {
   return (
     <header className="p-4 mb-3">
@@ -15,5 +15,5 @@ function Header() {
   );
 }
 
-// Export Header
+// Export component
 export default Header;

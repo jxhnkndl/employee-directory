@@ -16,5 +16,5 @@ function App() {
   );
 }
 
-// Export modules
+// Export component
 export default App;

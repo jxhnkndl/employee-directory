@@ -2,7 +2,7 @@
 import React from 'react';
 import './style.css';
 
-// Functional component declaration
+// Functional footer component
 function Footer() {
   return (
     <footer className="p-3">
