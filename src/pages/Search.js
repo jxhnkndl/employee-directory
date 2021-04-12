@@ -25,26 +25,23 @@ class Search extends Component {
   getEmployees = () => {
     API.getEmployees()
       .then((res) => {
-        // Create fullName property for each employee
         res.data.results.forEach((employee) => {
           employee.fullName = `${employee.name.first} ${employee.name.last}`;
         });
 
-        // Assign mutated response array to results
         this.setState({ results: res.data.results });
       })
       .catch((err) => console.log(err));
   };
 
-  // Format DOB utility method
+  // Format DOB
   formatDate = (dob) => {
     return dayjs(dob).format('MM/DD/YYYY');
   };
 
-  // Handle search input change
+  // Handle search field input change
   handleInputChange = (event) => {
     const { value } = event.target;
-
     this.setState({ search: value });
   };
 
@@ -54,9 +51,9 @@ class Search extends Component {
     // Note this should stay true for every event after the first instance
     this.setState({ sorted: true });
 
-    // If the results haven't yet been sorted
+    // If the results haven't yet been sorted, sort them alphabetically
+    // If they have, just reverse the results array to flip order direction
     if (!this.state.sorted) {
-      // Take the results array and sort by name alphabetically
       const sortedArray = this.state.results.sort((a, b) => {
         if (a.fullName < b.fullName) {
           return -1;
@@ -66,15 +63,9 @@ class Search extends Component {
         return 0;
       });
 
-      // Update the state of the results with the sorted array
       this.setState({ results: sortedArray });
-    }
-    // If results have already been sorted once
-    else {
-      // Reverse the sorted array
+    } else {
       const reverseArray = this.state.results.reverse();
-
-      // Update the state of the results with the flipped array
       this.setState({ results: reverseArray });
     }
   };
