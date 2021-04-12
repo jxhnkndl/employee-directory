@@ -8,11 +8,11 @@ function Table(props) {
   const [isAscending, setIsAscending] = useState(false);
 
   return (
-    <table className="table table-hover table-striped table-responsive-md p-0">
+    <table className="table table-striped table-responsive-md p-0">
       <thead className="text-light">
         <tr>
           <th id="col-image" scope="col">
-            Image
+            <p className="mb-0">Image</p>
           </th>
           <th
             id="col-name"
@@ -26,8 +26,8 @@ function Table(props) {
             onMouseLeave={() => setIsVisible(false)}
             scope="col"
           >
-            <i id="sort-icon" class="fas fa-sort mr-2"></i>
-            Name
+            <i id="sort-icon" className="fas fa-sort mr-2"></i>
+            <p className="mb-0 d-inline-block">Name</p>
             {/* Determine which icon to show based on how rows are currently sorted/ordered */}
             {isVisible && isAscending && (
               <i className="fas fa-sort-alpha-up ml-2"></i>
@@ -37,13 +37,13 @@ function Table(props) {
             )}
           </th>
           <th id="col-phone" scope="col">
-            Phone
+            <p className="mb-0">Phone</p>
           </th>
           <th id="col-email" scope="col">
-            Email
+            <p className="mb-0 px-2">Email</p>
           </th>
           <th id="col-dob" scope="col">
-            DOB
+            <p className="mb-0">DOB</p>
           </th>
         </tr>
       </thead>

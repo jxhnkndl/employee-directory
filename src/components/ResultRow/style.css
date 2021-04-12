@@ -1,0 +1,14 @@
+a,
+a:visited {
+  color: #FF6A3D;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #FF6A3D;
+  color: #ffffff;
+}
+
+img {
+  width: 60px;
+}
