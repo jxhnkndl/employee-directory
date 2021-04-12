@@ -3,6 +3,10 @@ header {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
-i {
+#icon-header-yellow {
   color: #F4DB7D;
+}
+
+#icon-header-orange {
+  color: #FF6A3D;
 }
