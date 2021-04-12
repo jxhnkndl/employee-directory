@@ -11,7 +11,7 @@ function Table(props) {
 
   return (
     <table className="table table-hover table-striped table-responsive-md p-0">
-      <thead>
+      <thead className="text-light">
         <tr>
           <th id="col-image" scope="col">
             Image
@@ -28,7 +28,7 @@ function Table(props) {
             onMouseLeave={() => setIsVisible(false)}
             scope="col"
           >
-            <i class="fas fa-sort mr-2"></i>
+            <i id="sort-icon" class="fas fa-sort mr-2"></i>
             Name
             {/* Determine which icon to show based on how rows are currently sorted/ordered */}
             {isVisible && isAscending && (
