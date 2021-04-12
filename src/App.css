@@ -1,0 +1,7 @@
+div #app-wrapper {
+  color: #3C403D;
+  font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  padding-bottom: 75px;
+  position: relative;
+}

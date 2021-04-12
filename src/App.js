@@ -3,19 +3,12 @@ import React from 'react';
 import Header from './components/Header';
 import Search from './pages/Search';
 import Footer from './components/Footer';
+import './App.css';
 
 // App component function
 function App() {
-  const styles = {
-    div: {
-      minHeight: '100vh',
-      paddingBottom: '75px',
-      position: 'relative'
-    }
-  }
-  
   return (
-    <div style={styles.div}>
+    <div id="app-wrapper">
       <Header />
       <Search />
       <Footer />
