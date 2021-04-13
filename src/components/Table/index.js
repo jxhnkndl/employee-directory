@@ -16,18 +16,22 @@ function Table(props) {
           </th>
           <th
             id="col-name"
+            scope="col"
+
             // Sort the rows by name and toggle the order state
             onClick={() => {
               props.handleNameSort();
               setIsAscending(!isAscending);
             }}
+
             // Only show the icons when the field is hovered over
             onMouseEnter={() => setIsVisible(true)}
             onMouseLeave={() => setIsVisible(false)}
-            scope="col"
           >
-            <i id="sort-icon" className="fas fa-sort mr-2"></i>
+            {/* Name column header and sort icon behavior */}
+            <i className="fas fa-sort yellow mr-2"></i>
             <p className="mb-0 d-inline-block">Name</p>
+
             {/* Determine which icon to show based on how rows are currently sorted/ordered */}
             {isVisible && isAscending && (
               <i className="fas fa-sort-alpha-up ml-2"></i>

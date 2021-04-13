@@ -25,6 +25,8 @@ class Search extends Component {
   getEmployees = () => {
     API.getEmployees()
       .then((res) => {
+
+        // Create fullName property for each employee object
         res.data.results.forEach((employee) => {
           employee.fullName = `${employee.name.first} ${employee.name.last}`;
         });
@@ -48,11 +50,11 @@ class Search extends Component {
   // Sort alphabetically by name
   handleNameSort = (event) => {
     // Set sorted state to true
-    // Note this should stay true for every event after the first instance
     this.setState({ sorted: true });
 
     // If the results haven't yet been sorted, sort them alphabetically
     // If they have, just reverse the results array to flip order direction
+
     if (!this.state.sorted) {
       const sortedArray = this.state.results.sort((a, b) => {
         if (a.fullName < b.fullName) {
@@ -62,8 +64,8 @@ class Search extends Component {
         }
         return 0;
       });
-
       this.setState({ results: sortedArray });
+
     } else {
       const reverseArray = this.state.results.reverse();
       this.setState({ results: reverseArray });
@@ -80,39 +82,43 @@ class Search extends Component {
             handleInputChange={this.handleInputChange}
           />
           <Table handleNameSort={this.handleNameSort}>
-            {this.state.results
+            {/* The logic below adds the dynamic search capabilities */}
+            {
               // Filter out any results that don't include the search string
-              .filter((employee) => {
-                // Capture filter field values
-                let name = employee.name.first.toLowerCase();
-                let phone = employee.cell;
+              this.state.results
+                .filter((employee) => {
+                  // Capture filter field values
+                  let name = employee.name.first.toLowerCase();
+                  let phone = employee.cell;
 
-                // Capture the current search string
-                let search = this.state.search;
+                  // Capture the current search string
+                  let search = this.state.search;
 
-                // Determine whether user is searching by name, phone number, or neither
-                if (search.match(/^[a-zA-Z]+$/)) {
-                  return name.includes(search.toLowerCase());
-                } else if (search.match(/^[0-9]+$/)) {
-                  return phone.includes(search);
-                } else {
-                  return employee;
-                }
-              })
-              // Then map the remaining results and create table rows for each
-              .map((employee, index) => {
-                return (
-                  <ResultRow
-                    key={index}
-                    id={index}
-                    image={employee.picture.thumbnail}
-                    name={employee.fullName}
-                    phone={employee.cell}
-                    email={employee.email}
-                    dob={this.formatDate(employee.dob.date)}
-                  />
-                );
-              })}
+                  // Determine whether user is searching by name, phone number, or neither
+                  if (search.match(/^[a-zA-Z]+$/)) {
+                    return name.includes(search.toLowerCase());
+                  } else if (search.match(/^[0-9]+$/)) {
+                    return phone.includes(search);
+                  } else {
+                    return employee;
+                  }
+                })
+
+                // Then map the remaining results and create table rows for each
+                .map((employee, index) => {
+                  return (
+                    <ResultRow
+                      key={index}
+                      id={index}
+                      image={employee.picture.thumbnail}
+                      name={employee.fullName}
+                      phone={employee.cell}
+                      email={employee.email}
+                      dob={this.formatDate(employee.dob.date)}
+                    />
+                  );
+                })
+            }
           </Table>
         </Container>
       </main>

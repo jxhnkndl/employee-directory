@@ -1,4 +1,4 @@
-/* App wrapper component styles */
+/* General Application Styles */
 
 div #app-wrapper {
   font-family: 'Work Sans', Arial, Helvetica, sans-serif;
@@ -6,4 +6,14 @@ div #app-wrapper {
   min-height: 100vh;
   padding-bottom: 75px;
   position: relative;
+}
+
+/* Utility classes */
+
+.orange {
+  color: #FF6A3D;
+}
+
+.yellow {
+  color: #F4DB7D;
 }

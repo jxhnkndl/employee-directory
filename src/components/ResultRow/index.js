@@ -9,7 +9,7 @@ function ResultRow(props) {
       <th scope="row" className="align-middle">
         <img 
           src={props.image}
-          alt="Company headshot"
+          alt="Employee headshot"
         />
       </th>
       <td className="align-middle">{props.name}</td>
