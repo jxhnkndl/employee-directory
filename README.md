@@ -86,7 +86,7 @@ npm run build
 
 The following gif showcases the application's user interface and demonstrates its core functionality:
 
-<img src="" alt="Employee Directory application's user experience" width="1000">  
+<img src="assets/demo-gifs/directory-demo.gif" alt="Employee Directory application's user experience" width="1000">  
 
 
 ## License
