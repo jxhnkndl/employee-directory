@@ -32,6 +32,8 @@ class Search extends Component {
         });
 
         this.setState({ results: res.data.results });
+
+        this.handleNameSort();
       })
       .catch((err) => console.log(err));
   };
@@ -49,9 +51,6 @@ class Search extends Component {
 
   // Sort alphabetically by name
   handleNameSort = (event) => {
-    // Set sorted state to true
-    this.setState({ sorted: true });
-
     // If the results haven't yet been sorted, sort them alphabetically
     // If they have, just reverse the results array to flip order direction
 
@@ -64,6 +63,9 @@ class Search extends Component {
         }
         return 0;
       });
+
+      // Set state to reflect sorted results
+      this.setState({ sorted: true });
       this.setState({ results: sortedArray });
 
     } else {
